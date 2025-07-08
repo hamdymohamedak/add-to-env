@@ -57,3 +57,9 @@ This PowerShell script helps automatically add the path of the Android Debug Bri
 4. تابع التعليمات الظاهرة في الطرفية.
 
 Enjoy smoother Android development setup! ✅
+
+
+## to run app 
+powershell -ExecutionPolicy Bypass -File .\Path.ps1
+
+and the input will be like C:\scrcpy-win64-v3.3.1\scrcpy-win64-v3.3.1
