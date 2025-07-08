@@ -1,65 +1,156 @@
-# 📦 ADB Path Setup Script
+# PowerShell Script to Add Folder to System PATH
 
-## 🇸🇦 الوصف (Description in Arabic)
-
-هذا السكريبت بلغة PowerShell يُستخدم لإضافة مسار أداة Android Debug Bridge (adb.exe) إلى متغير البيئة PATH في نظام ويندوز. الأداة مهمة للمطورين العاملين على تطبيقات Android، حيث تسمح بالتواصل مع الأجهزة لتثبيت التطبيقات، تصحيح الأخطاء، وغيرها من المهام.
-
-### ✅ مميزات السكريبت:
-
-* التحقق من تشغيل السكريبت كمسؤول (Administrator) تلقائيًا.
-* يسأل المستخدم عن المسار الكامل لملف `adb.exe`.
-* يتحقق من وجود الملف قبل المتابعة.
-* يتفقد إذا كان المسار مضاف مسبقًا إلى PATH.
-* يضيف المسار إلى PATH إن لم يكن موجودًا.
-* يُعلِم المستخدم بإعادة تشغيل الجهاز أو الطرفية لتفعيل التغييرات.
-
-### 🎯 فوائد للمستخدم:
-
-* لا حاجة للتعديل اليدوي في إعدادات النظام.
-* يحمي المستخدم من الأخطاء الشائعة عند إعداد adb.
-* يوفر تجربة سهلة وسريعة للمطورين أو الطلاب.
+## 📌 Overview
+This PowerShell script allows users to **easily add a custom folder to the Windows system PATH environment variable**. It ensures that the script is run with administrative privileges, checks if the folder exists, and avoids adding duplicates to the PATH.
 
 ---
 
-## 🇬🇧 Description (English)
+## ✅ Features
 
-This PowerShell script helps automatically add the path of the Android Debug Bridge (`adb.exe`) to the system’s PATH environment variable on Windows. This is essential for developers working with Android devices for tasks such as installing apps, debugging, and device communication.
-
-### ✅ Features:
-
-* Automatically checks for Administrator privileges and relaunches with elevation if needed.
-* Prompts the user to enter the full path to `adb.exe`.
-* Validates the file path.
-* Checks if the path is already in the PATH variable.
-* Appends the path to the system PATH if it isn't already there.
-* Notifies the user to restart their system or terminal for the changes to take effect.
-
-### 🎯 Benefits to the User:
-
-* No need for manual system variable editing.
-* Protects against common configuration errors.
-* Provides a fast and user-friendly way for developers and students to configure `adb` correctly.
+- 🔐 **Admin Privilege Check**: Automatically re-launches with elevated privileges if needed.
+- 📂 **Folder Validation**: Prompts for folder path and verifies its existence.
+- 🔁 **Duplicate Check**: Checks if the folder is already in PATH.
+- ➕ **Safe Append**: Adds folder to system PATH only if it's not already present.
+- 🔄 **Environment Update**: Notifies the system about the PATH change without requiring a restart.
+- 🖥️ **User-Friendly Output**: Colored feedback for each operation.
 
 ---
 
-## ⚠️ ملاحظات (Notes)
+## 🚀 How to Use
 
-* هذا السكريبت يقوم بتعديل متغير النظام `PATH` الموجود في الريجيستري، لذا تأكد من تشغيله كمسؤول.
-* ينصح بإعادة تشغيل الطرفية أو الجهاز بعد تشغيل السكريبت لتفعيل التغييرات.
+1. **Right-click** on the script file and select **"Run with PowerShell"** _or_ run from terminal using:
 
----
-
-## 🚀 طريقة الاستخدام (How to Use)
-
-1. افتح PowerShell كـ Administrator.
-2. شغل السكريبت.
-3. عندما يُطلب منك، أدخل المسار الكامل لـ `adb.exe` (مثال: `C:\platform-tools\adb.exe`).
-4. تابع التعليمات الظاهرة في الطرفية.
-
-Enjoy smoother Android development setup! ✅
-
-
-## to run app 
+```powershell
 powershell -ExecutionPolicy Bypass -File .\Path.ps1
+```
 
-and the input will be like C:\scrcpy-win64-v3.3.1\scrcpy-win64-v3.3.1
+2. When prompted, enter the full path to the folder you want to add, e.g.:
+
+```
+C:\scrcpy-win64-v3.3.1
+```
+
+---
+
+## 💡 Example Use Case
+
+You downloaded a CLI tool like `scrcpy` and want to be able to run it from any command prompt. Instead of manually editing environment variables, just:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Path.ps1
+```
+
+Then input:
+
+```
+C:\scrcpy-win64-v3.3.1\scrcpy-win64-v3.3.1
+```
+
+Now you can run `scrcpy` from any terminal session.
+
+---
+
+## ⚠️ Notes
+
+- Always **open a new terminal session** after running this script to load the new PATH.
+- This script **modifies system-level environment variables**. Use with care.
+
+---
+
+## 🛠 Requirements
+
+- Windows OS
+- PowerShell (v5 or later)
+- Administrator privileges
+
+---
+
+## 📁 File
+
+- `Path.ps1` – The PowerShell script that handles all operations.
+
+---
+
+## 🧑‍💻 Author
+
+Created by **Hamdy Mohamed** for simplifying Windows environment setup tasks.
+
+
+# AR
+
+# سكربت PowerShell لإضافة مجلد إلى PATH في نظام ويندوز
+
+## 📌 نظرة عامة
+هذا السكربت يساعدك على **إضافة مجلد مخصص إلى متغير البيئة PATH الخاص بالنظام في ويندوز بسهولة**. يتحقق من تشغيله كمسؤول، ويتأكد من وجود المجلد، ويمنع التكرار في PATH.
+
+---
+
+## ✅ المميزات
+
+- 🔐 **التحقق من صلاحيات المسؤول**: يعيد تشغيل نفسه تلقائيًا بصلاحيات المسؤول إذا لم يكن كذلك.
+- 📂 **التحقق من المجلد**: يطلب منك إدخال المسار ويتأكد من وجوده.
+- 🔁 **التحقق من التكرار**: يتأكد إذا كان المجلد مضاف مسبقًا في PATH.
+- ➕ **إضافة آمنة**: يضيف المجلد فقط إذا لم يكن موجودًا بالفعل.
+- 🔄 **تحديث البيئة**: يخبر النظام بتحديث متغير البيئة بدون الحاجة لإعادة التشغيل.
+- 🖥️ **رسائل واضحة للمستخدم**: يوضح نتيجة كل خطوة بلون مختلف.
+
+---
+
+## 🚀 طريقة الاستخدام
+
+1. **اضغط بزر الماوس الأيمن** على ملف السكربت واختر **"Run with PowerShell"** أو قم بتشغيله عبر الطرفية باستخدام:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Path.ps1
+```
+
+2. عند الطلب، أدخل مسار المجلد الذي تريد إضافته، مثال:
+
+```
+C:\scrcpy-win64-v3.3.1
+```
+
+---
+
+## 💡 مثال استخدام
+
+قمت بتحميل أداة مثل `scrcpy` وتريد تشغيلها من أي مكان في الطرفية، بدل ما تعدل PATH يدويًا، فقط شغّل:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Path.ps1
+```
+
+ثم أدخل المسار:
+
+```
+C:\scrcpy-win64-v3.3.1\scrcpy-win64-v3.3.1
+```
+
+الآن يمكنك كتابة `scrcpy` في أي نافذة أوامر وتشغيله.
+
+---
+
+## ⚠️ ملاحظات
+
+- تأكد من **فتح نافذة جديدة للطرفية** بعد تشغيل السكربت لتحميل التحديثات في PATH.
+- هذا السكربت **يعدل متغيرات بيئة النظام**، لذلك استخدمه بحذر.
+
+---
+
+## 🛠 المتطلبات
+
+- نظام تشغيل Windows
+- PowerShell (الإصدار الخامس أو أحدث)
+- صلاحيات مسؤول
+
+---
+
+## 📁 الملفات
+
+- `Path.ps1` – السكربت الذي ينفذ جميع العمليات.
+
+---
+
+## 🧑‍💻 المؤلف
+
+تم الإنشاء بواسطة **Hamdy Mohamed** لتسهيل إعداد بيئة النظام على ويندوز.
